@@ -43,7 +43,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         <li><a href="{{ url('/data-master') }}">Data Master</a></li>
-                        <li><a href="#">Warehouse</a></li>
+                        <li><a href="{{ url('/warehouse') }}">Warehouse</a></li>
                         <li><a href="#">User</a></li>
                     </ul>
 
