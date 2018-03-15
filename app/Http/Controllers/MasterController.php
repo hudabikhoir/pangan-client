@@ -13,6 +13,11 @@ class MasterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $client = new Client(); //GuzzleHttp\Client
@@ -160,5 +165,12 @@ class MasterController extends Controller
                 'name' => $input['name']
             ]
         ]);  
+    }
+
+    public function destroyComodities($id)
+    {
+        $client = new Client();
+
+        $apiRequest = $client->request('DELETE','http://localhost:8080/comodities/'.$id, []);
     }
 }
