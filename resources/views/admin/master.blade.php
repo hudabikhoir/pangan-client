@@ -75,7 +75,7 @@
                                 <td>{{ $com->name}}</td>
                                 <td>
                                 <div class="btn-group">
-                                        <button onclick="hapus({{ $c->id }})" type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i>
+                                        <button onclick="hapusComodities({{ $com->id }})" type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i>
                                         </button>
                                         <button onclick="edit_como({{ $com->id }},{{ $c->id }})" type="button" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i>
                                         </button>
@@ -90,38 +90,6 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Detail Komoditas</h4>
-        </div>
-        <div class="modal-body">
-            <table class="table-bordered table">
-                <thead>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Action</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
 @endsection
 @push('scripts')
 <script>
@@ -287,6 +255,49 @@
 			}); 
             window.location.reload();
 		  }
+	}
+    function hapusComodities(id){
+			iziToast.question({
+			timeout: 20000,
+			close: false,
+			overlay: true,
+			toastOnce: true,
+			id: 'question',
+			zindex: 999,
+			title: 'Hey',
+			message: 'Apakah anda yakin?',
+			position: 'center',
+			buttons: [
+				['<button><b>YA</b></button>', function (instance, toast) {
+					$.ajax({
+					url: '{{ url("/data-master/comodities/delete") }}'+'/'+id,
+					async: false,
+					type: "DELETE",
+					data: {
+						"id": id,
+						"_method": 'DELETE',
+						"_token": '{{ csrf_token() }}',
+					},
+					dataType: "json",
+					success: function(data) {}
+				});
+                    window.location.reload();
+					instance.hide(toast, { transitionOut: 'fadeOut' }, 'button');
+		 
+				}, true],
+				['<button>TIDAK</button>', function (instance, toast) {
+		 
+					instance.hide(toast, { transitionOut: 'fadeOut' }, 'button');
+		 
+				}]
+			],
+			onClosing: function(instance, toast, closedBy){
+				console.info('Closing | closedBy: ' + closedBy);
+			},
+			onClosed: function(instance, toast, closedBy){
+				console.info('Closed | closedBy: ' + closedBy);
+			}
+		});
 	}
 </script>
 @endpush
