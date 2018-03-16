@@ -41,12 +41,16 @@
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
+                    @guest
+                    @else
+                    <?php if(Auth::user()->id == 1) {?>
                     <ul class="nav navbar-nav">
                         <li><a href="{{ url('/data-master') }}">Data Master</a></li>
                         <li><a href="{{ url('/warehouse') }}">Warehouse</a></li>
-                        <li><a href="#">User</a></li>
+                        <li><a href="{{ url('/user') }}">User</a></li>
                     </ul>
-
+                    <?php } ?>
+                    @endguest
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->

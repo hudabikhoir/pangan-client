@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +23,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user()->id_role;
+        // dd($user);
+        if($user == 1){
+            return view('home');
+        }elseif($user == 2){
+            return redirect('warehouse');
+        }else{
+            return view('welcome');
+        }
     }
 }
