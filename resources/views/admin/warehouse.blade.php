@@ -10,7 +10,8 @@
                     <form method="POST" action="{{ url('')}}">
                         <div class="form-group form-group-default required">
                             {{ csrf_field() }}
-                            <label>NAMA</label>
+                            <label>NAMA</label><br>
+                            <?php if(Auth::user()->id_role == '1') {?>
                             <input id="id" name="nama" class="form-control" required="" type="hidden" value="0">
                             <select id="id_user" name="id_user" class="form-control" required="" type="text" value="">
                                 <option value="0">-- pilih user --</option>
@@ -18,6 +19,11 @@
                                 <option value="{{ $us->id }}">{{ $us->username }}</option>
                                 <?php } ?>
                             </select>
+                                <?php }else{ ?>
+                            <label>{{ Auth::user()->username }}</label>
+                            <input id="id" name="nama" class="form-control" required="" type="hidden" value="0">
+                            <input id="id_user" type="hidden" value="{{ Auth::user()->id }}">
+                                <?php } ?>
                         </div>
                         <div class="form-group form-group-default required">
                             <label>COMMODITIES</label>
@@ -56,12 +62,16 @@
                             <th>Action</th>
                         </thead>
                         <tbody>
-                            <tr>
                             <?php 
                                 $no = 1;
                                 foreach($content as $c){ ?>
+                            <tr>
                                 <td>{{ $no }}</td>
+                                <?php if(Auth::user()->id_role == 2){?>
+                                <td>{{ Auth::user()->username }}</td>
+                                <?php }else{?>
                                 <td>{{ $c->username }}</td>
+                                <?php }?>
                                 <td>{{ $c->name }}</td>
                                 <td>{{ $c->stock }}</td>
                                 <td>

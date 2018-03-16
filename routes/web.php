@@ -16,8 +16,9 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::post('/login', 'Auth\LoginController@login')->middleware('cekstatus');
+Route::get('/home', 'HomeController@index');
+// Route::get('/home-petani', 'HomeController@petani');
 Route::get('/data-master', 'MasterController@index');
 Route::get('/data-master/edit/{id}', 'MasterController@edit');
 Route::post('/data-master/tambah', 'MasterController@store');
@@ -33,3 +34,5 @@ Route::get('/warehouse/{id}', 'WarehouseController@edit');
 Route::post('/warehouse', 'WarehouseController@store');
 Route::put('/warehouse/update/{id}', 'WarehouseController@update');
 Route::delete('/warehouse/delete/{id}', 'WarehouseController@destroy');
+Route::get('/user', 'UserController@index');
+Route::delete('/user/delete/{id}', 'UserController@destroy');

@@ -16,7 +16,7 @@
 
                     Selamat Datang, {{ Auth::user()->username }}!
 
-                    Anda login sebagai admin
+                    Anda login sebagai petani
                 </div>
             </div>
         </div>

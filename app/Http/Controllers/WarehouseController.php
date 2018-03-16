@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 use DB;
+use Auth;
 
 class WarehouseController extends Controller
 {
@@ -19,9 +20,13 @@ class WarehouseController extends Controller
         $user = DB::table('users')->get();
         $comodities = DB::table('comodities')->get();
         $client = new Client(); //GuzzleHttp\Client
-        $result = $client->get('http://localhost:8080/warehouse');
+        $id_role = Auth::user()->id_role;
+        if($id_role == 1 ){
+            $result = $client->get('http://localhost:8080/warehouse');
+        }else{
+            $result = $client->get('http://localhost:8080/warehouse/byuser/3');
+        }
         $content = json_decode($result->getBody()->getContents());
-
         return view('admin.warehouse',['content' => $content, 'user' => $user, 'comodities' => $comodities]);
     }
 
