@@ -34,42 +34,42 @@ Pangan service merupakan Sistem Informasi guna memperoleh data ketersediaan pang
 
 - Login
 
-[Imgur](https://i.imgur.com/RU8OHKp.png)
+![Imgur](https://i.imgur.com/RU8OHKp.png)
 
 - Maping Kategori dan Komoditas
 
-[Imgur](https://i.imgur.com/BuJDHKH.png)
+![Imgur](https://i.imgur.com/BuJDHKH.png)
 
 - Persediaan gudang
 
-[Imgur](https://i.imgur.com/kzWSHmm.png)
+![Imgur](https://i.imgur.com/kzWSHmm.png)
 
 - Koperasi
 
-[Imgur](https://i.imgur.com/cIpYjYP.png)
+![Imgur](https://i.imgur.com/cIpYjYP.png)
 
 - Manajemen User
 
-[Imgur](https://i.imgur.com/jR8nizL.png)
+![Imgur](https://i.imgur.com/jR8nizL.png)
 
 ### Petani
 
 - Login
 
-[Imgur](https://i.imgur.com/RU8OHKp.png)
+![Imgur](https://i.imgur.com/RU8OHKp.png)
 
 - Persediaan gudang
 
-[Imgur](https://i.imgur.com/jR8nizL.png)
+![Imgur](https://i.imgur.com/jR8nizL.png)
 
 ### Konsumen
 
 - Login
 
-[Imgur](https://i.imgur.com/RU8OHKp.png)
+![Imgur](https://i.imgur.com/RU8OHKp.png)
 
 - Permintaan Komoditas
 
-[Imgur](https://i.imgur.com/dTcUb83.png)
+![Imgur](https://i.imgur.com/dTcUb83.png)
 
 [License](https://github.com/hudabikhoir/pangan-client/blob/master/LICENSE.md) Pangan Client
