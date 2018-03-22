@@ -9,6 +9,10 @@
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js"></script>
+    <link href="{{ asset('assets/plugins/jquery-datatable/media/css/jquery.dataTables.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css') }}" rel="stylesheet" type="text/css" />
+	<link href="{{ asset('assets/plugins/datatables-responsive/css/datatables.responsive.css') }}" rel="stylesheet" type="text/css" media="screen" />
+	
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -50,7 +54,7 @@
                         <li><a href="{{ url('/cooperative') }}">Cooperative</a></li>
                         <li><a href="{{ url('/user') }}">User</a></li>
                     </ul>
-                    <?php } ?>
+                    <?php }?>
                     @endguest
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
@@ -89,6 +93,11 @@
     <script src="{{ asset('js/iziToast.js') }}"></script>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('assets/plugins/jquery-datatable/media/js/jquery.dataTables.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/plugins/jquery-datatable/extensions/Bootstrap/jquery-datatable-bootstrap.js') }}" type="text/javascript"></script>
+    <script type="text/javascript" src="{{ asset('assets/plugins/datatables-responsive/js/datatables.responsive.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/plugins/datatables-responsive/js/lodash.min.js') }}"></script>
     
     @stack('scripts')
 </body>

@@ -11,10 +11,15 @@ class CooperativeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index(){
         $content = DB::table('warehouse')
-                ->join('comodities', 'warehouse.id_comodities', '=', 'comodities.id')
                 ->leftJoin('cooperative', 'warehouse.id_comodities', '=', 'cooperative.id_comodities')
+                ->leftJoin('comodities', 'warehouse.id_comodities', '=', 'comodities.id')
                 ->select(DB::raw('sum(warehouse.stock) as stock'), 'comodities.name', 'cooperative.price', 'cooperative.id','comodities.id AS id_comodities')
                 ->groupBy('warehouse.id_comodities','cooperative.price','cooperative.id')
                 ->get();

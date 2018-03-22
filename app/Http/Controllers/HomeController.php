@@ -29,6 +29,8 @@ class HomeController extends Controller
             return view('home');
         }elseif($user == 2){
             return redirect('warehouse');
+        }elseif($user == 3){
+            return redirect('cart');
         }else{
             return view('welcome');
         }
