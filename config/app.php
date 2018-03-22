@@ -179,6 +179,7 @@ return [
 
         Rebing\GraphQL\GraphQLServiceProvider::class,
         Graphiql\GraphiqlServiceProvider::class,
+        Yajra\DataTables\DataTablesServiceProvider::class,
     ],
 
     /*
@@ -229,6 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'GraphQL' => 'Rebing\GraphQL\Support\Facades\GraphQL',
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
     ],
 
 ];

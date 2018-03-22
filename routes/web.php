@@ -37,3 +37,5 @@ Route::delete('/warehouse/delete/{id}', 'WarehouseController@destroy');
 Route::get('/user', 'UserController@index');
 Route::delete('/user/delete/{id}', 'UserController@destroy');
 Route::resource('/cooperative', 'CooperativeController');
+Route::get('/cart/harga/{id}', 'CartController@getHarga');
+Route::resource('/cart', 'CartController');
